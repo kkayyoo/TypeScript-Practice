@@ -95,3 +95,39 @@ for(var val of strArray) {
   document.write(val + '<br />');
 }
 // 5 6 7 8
+
+//Function
+var getSum = function(num1: number, num2: number): number{
+  return num1 + num2;
+}
+
+var theSum1: number = getSum(8, 2);
+
+document.write('8 + 2 = ' + theSum1 + "<br />");
+
+var getDiff = function(num1: number, num2 = 2, num3?:number):number {
+  //num3? ? means optional
+  if(typeof num3 !== 'undefined'){
+    return num1 - num2 - num3;
+  }
+  return num1 - num2;
+}
+
+document.write('8 - 2 = ' + getDiff(8) + "<br />");
+document.write('8 - 2 - 3 = ' + getDiff(8, 2, 3) + "<br />");
+document.write('8 - 2 - 3 = ' + getDiff(8, 3) + "<br />"); // num2 = 3,
+
+//Function & Array
+
+var sumAll = function(...nums: number[]): // ... equals to num1, num2, num3, ...
+  void{ // if nothing return, use void
+    var sum = nums.reduce((a,b) => a + b, 0); // reduce are cycle through the array, 0 is defined initial num
+    document.write('Sum: ' + sum + '<br />');
+  }
+sumAll(1, 2, 3, 4, 5, 6);
+
+// Arrow Function
+//Basically arrow functions don't include functions inside of the definition
+
+var addOne = (x) => x + 1;
+document.write('1 + 1 = ' + addOne(1) + '<br />');
